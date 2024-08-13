@@ -18,11 +18,12 @@ public class Modelo {
     @Column(name = "TX_NOME")
     private String nome;
 
-    @Column(name = "NR_POTENCIA", columnDefinition = "NUMERIC")
-    private double potencia;
+    @Column(name = "NR_POTENCIA", columnDefinition = "numeric")
+    private Double potencia;
 
-    @Column(name = "ID_MARCA")
-    private Long marca;
+    @JoinColumn(name = "ID_MARCA")
+    @ManyToOne
+    private Marca marca;
 
     /*
      aqui tem de fazer o foreign key
