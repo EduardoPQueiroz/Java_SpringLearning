@@ -37,6 +37,10 @@ public class Automovel {
     @ManyToOne
     private Modelo modelo;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "TBL_REL_AUTOMOVEL_ACESSORIO",
+            joinColumns = @JoinColumn(name = "ID_AUTOMOVEL"),
+            inverseJoinColumns = @JoinColumn(name = "ID_ACESSORIO")
+    )
     private List<Acessorio> acessorios;
 }
