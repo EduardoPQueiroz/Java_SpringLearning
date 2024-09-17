@@ -23,6 +23,13 @@ public class MonitorService {
 
 
     public Monitor inserirMonitor(Monitor monitor){
+        var existeWhats = monitorRepository.findByWhatsapp(monitor.getWhatsapp());
+        var exiteEmail = monitorRepository.findByEmail(monitor.getEmail());
+        if(!existeWhats.isEmpty()){
+            throw new RuntimeException("O número de zap já foi cadastrado!");
+        } else if (!exiteEmail.isEmpty()) {
+            throw new RuntimeException("O email inserido já foi cadastrado!");
+        }
         return monitorRepository.save(monitor);
     }
 

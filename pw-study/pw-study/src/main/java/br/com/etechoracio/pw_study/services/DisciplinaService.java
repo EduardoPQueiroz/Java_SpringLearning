@@ -18,6 +18,10 @@ public class DisciplinaService {
     }
 
     public Disciplina cadastrarDisciplina(Disciplina disciplina){
+        var existe = repository.findByNomeIgnoreCase(disciplina.getNome());
+        if(!existe.isEmpty()){
+            throw new RuntimeException("Nome da disciplina já cadastrado!");
+        }
         return repository.save(disciplina);
     }
 
