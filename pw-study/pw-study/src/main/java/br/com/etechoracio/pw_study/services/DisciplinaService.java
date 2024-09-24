@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DisciplinaService {
@@ -17,6 +18,9 @@ public class DisciplinaService {
         return repository.findAll();
     }
 
+    public Optional<Disciplina> buscarPorId(Long id){
+        return repository.findById(id);
+    }
     public Disciplina cadastrarDisciplina(Disciplina disciplina){
         var existe = repository.findByNomeIgnoreCase(disciplina.getNome());
         if(!existe.isEmpty()){
@@ -25,5 +29,8 @@ public class DisciplinaService {
         return repository.save(disciplina);
     }
 
+    public void exclude(Long id){
+        repository.deleteById(id);
+    }
 
 }
