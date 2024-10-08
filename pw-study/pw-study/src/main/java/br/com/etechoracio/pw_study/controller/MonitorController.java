@@ -6,6 +6,7 @@ import br.com.etechoracio.pw_study.entitye.Monitor;
 import br.com.etechoracio.pw_study.repository.MonitorRepository;
 import br.com.etechoracio.pw_study.services.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,9 @@ public class MonitorController {
         return  monitorService.inserirMonitor(monitor);
     }
 
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Monitor> excluirMonitor(@PathVariable Long id){
+        monitorService.excluirMonitor();
+    }
 
 }
