@@ -29,9 +29,5 @@ public class MonitorController {
         return  monitorService.inserirMonitor(monitor);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Monitor> excluirMonitor(@PathVariable Long id){
-        monitorService.excluirMonitor();
-    }
 
 }

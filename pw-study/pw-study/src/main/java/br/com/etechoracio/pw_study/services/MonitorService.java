@@ -27,23 +27,13 @@ public class MonitorService {
 
     public Monitor inserirMonitor(Monitor monitor){
         var existeWhats = monitorRepository.findByWhatsapp(monitor.getWhatsapp());
-        var exiteEmail = monitorRepository.findByEmail(monitor.getEmail());
+        var existeEmail = monitorRepository.findByEmail(monitor.getEmail());
         if(!existeWhats.isEmpty()){
             throw new RuntimeException("O número de zap já foi cadastrado!");
-        } else if (!exiteEmail.isEmpty()) {
+        } else if (!existeEmail.isEmpty()) {
             throw new RuntimeException("O email inserido já foi cadastrado!");
         }
         return monitorRepository.save(monitor);
     }
 
-    public void excluirMonitor(Long idMonitor, Long idConexao){
-        var temConex = conexaoRepository.findByIdConexao(idMonitor);
-        if (!temConex.isEmpty()){
-            conexaoRepository.deleteById(idConexao);
-            monitorRepository.deleteById(idMonitor);
-        }
-        else{
-            monitorRepository.deleteById(idMonitor);
-        }
-    }
 }
