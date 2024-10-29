@@ -36,6 +36,11 @@ public class DisciplinaController {
         //        .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    public Disciplina atualizar(@RequestBody Disciplina disciplina, @PathVariable Long id) {
+        return service.atualizarDisciplina(disciplina, id);
+    }
+
     @PostMapping
     public Disciplina cadastrar(@RequestBody Disciplina disciplina){
         return  service.cadastrarDisciplina(disciplina);

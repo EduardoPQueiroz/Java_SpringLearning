@@ -45,4 +45,18 @@ public class DisciplinaService {
         }
     }
 
+    public Disciplina atualizarDisciplina(Disciplina disciplina, Long id){
+        var existe = buscarPorId(id);
+        var NomeExiste = repository.findByNomeIgnoreCase(disciplina.getNome());
+        if(existe.isEmpty()){
+            throw new RuntimeException("Impossível atualizar uma disciplina que não foi cadastrada.");
+        }
+        else if (!NomeExiste.isEmpty()){
+            throw new RuntimeException("Já existe uma disciplina cadastrada com esse nome.");
+        }
+        else {
+            return repository.save(disciplina);
+        }
+    }
+
 }
