@@ -1,11 +1,10 @@
 package br.com.etechoracio.pw_study.controller;
 
 import br.com.etechoracio.pw_study.entitye.Conexoes;
+import br.com.etechoracio.pw_study.entitye.Monitor;
 import br.com.etechoracio.pw_study.services.ConexoesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,4 +17,7 @@ public class ConexoesController {
     public Long contar(){
         return service.contar();
     }
+
+    @PostMapping
+    public Conexoes inserirConexao(@RequestBody Monitor monitor){return service.inserirConexao(monitor);}
 }
