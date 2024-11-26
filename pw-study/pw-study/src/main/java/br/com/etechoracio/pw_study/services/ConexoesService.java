@@ -14,8 +14,8 @@ public class ConexoesService {
         return conexoesRepository.count();
     }
 
-    public Conexoes inserirConexao(Monitor monitor){
-        return conexoesRepository.save(monitor);
-    }
+//    public Conexoes inserirConexao(Monitor monitor){
+//        return conexoesRepository.save(monitor);
+//    }
 
 }

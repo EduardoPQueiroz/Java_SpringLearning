@@ -18,6 +18,6 @@ public class ConexoesController {
         return service.contar();
     }
 
-    @PostMapping
-    public Conexoes inserirConexao(@RequestBody Monitor monitor){return service.inserirConexao(monitor);}
+//    @PostMapping
+//    public Conexoes inserirConexao(@RequestBody Monitor monitor){return service.inserirConexao(monitor);}
 }
